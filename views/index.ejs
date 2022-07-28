@@ -9,29 +9,23 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
     <h1>Todo List: </h1>
     <ul class="todoItems">
-    <% for(let i=0; i < items.length; i++) {%>
+    <% for(let i=0; i < items.length; i++) {%> <!-- for loop that will iterate through array stored in items (we got items from the server) -->
+        <!-- create list item with class item -->
         <li class="item">
+            <!-- if current items completed status is true, going to creat span with class of completed and text content of current items thing property-->
             <% if(items[i].completed === true) {%>
                 <span class='completed'><%= items[i].thing %></span>
+            <!-- if completed is not true adds span with no class but content is same as if statement-->
             <% }else{ %>
                 <span><%= items[i].thing %></span>
-            <% } %>    
+            <% } %>
             <span class='fa fa-trash'></span>
         </li>
     <% } %>
     </ul>
-
+    <!-- adding count of items left to do to h2-->
     <h2>Left to do: <%= left %></h2>
 
     <h2>Add A Todo:</h2>
